@@ -31,11 +31,6 @@ app.get('/downloadmp3', async (req, res, next) => {
 });
 
 
-routes.get('/', function (req, res) {
-    return res.render("./index")
-});
-
-
 app.get('/downloadmp4', async (req, res, next) => {
 	try {
 		let URL = req.query.url;
