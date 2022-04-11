@@ -57,8 +57,6 @@
             $short_description = $video->videoDetails->shortDescription;
             $thumbnail = end($thumbnails)->url;
 
-            var_dump(json_decode(getVideoInfo($video_id)));
-
             ?>
             
             
