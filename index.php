@@ -25,13 +25,13 @@
         <form method="post" action="" class="formSmall">
             <div class="row">
                 <div class="col-lg-12">
-                    <h7 class="text-align"> Download YouTube Video</h7>
+                    <h7 class="text-align"> Baixe vídeos do youtube! </h7>
                 </div>
                 <div class="col-lg-12">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="video_link" placeholder="Paste link.. e.g. https://www.youtube.com/watch?v=OK_JCtrrv-c" <?php if(isset($_POST['video_link'])) echo "value='".$_POST['video_link']."'"; ?>>
+                        <input type="text" class="form-control" name="video_link" placeholder="Cole o link. Ex: https://www.youtube.com/watch?v=qb8yXWFRROg" <?php if(isset($_POST['video_link'])) echo "value='".$_POST['video_link']."'"; ?>>
                         <span class="input-group-btn">
-                        <button type="submit" name="submit" id="submit" class="btn btn-primary">Go!</button>
+                        <button type="submit" name="submit" id="submit" class="btn btn-primary">Bora!</button>
                       </span>
                     </div><!-- /input-group -->
                 </div>
@@ -56,6 +56,9 @@
             $title = $video->videoDetails->title;
             $short_description = $video->videoDetails->shortDescription;
             $thumbnail = end($thumbnails)->url;
+
+            var_dump(json_decode(getVideoInfo($video_id)));
+
             ?>
             
             
@@ -75,7 +78,7 @@
                 <?php if(@$formats[0]->url == ""): ?>
                 <div class="card formSmall">
                     <div class="card-header">
-                        <strong>This video is currently not supported by our downloader!</strong>
+                        <strong>Este vídeo não é suportado pelo nosso Downloader!</strong>
                         <small><?php 
                         $signature = "https://example.com?".$formats[0]->signatureCipher;
                                     parse_str( parse_url( $signature, PHP_URL_QUERY ), $parse_signature );
